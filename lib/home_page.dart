@@ -8,6 +8,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int contador = 0;
+
+  void incrementar() {
+    contador++;
+    setState(() {});
+  }
+
+  void diminuir() {
+    contador--;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,13 +32,15 @@ class _HomePageState extends State<HomePage> {
       ),
       body: const Center(
         child: Text(
-          '0',
+          contador as String,
           style: TextStyle(fontSize: 50),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add),
-        onPressed: () {},
+      floatingActionButton: Row(
+        FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {},
+        ),
       ),
     );
   }
