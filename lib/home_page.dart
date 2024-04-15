@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,17 +31,21 @@ class _HomePageState extends State<HomePage> {
         ),
         backgroundColor: Colors.purple,
       ),
-      body: const Center(
+      body: Center(
         child: Text(
-          contador as String,
-          style: TextStyle(fontSize: 50),
+          contador.toString(),
+          style: const TextStyle(fontSize: 50),
         ),
       ),
       floatingActionButton: Row(
-        FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {},
-        ),
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+              onPressed: diminuir, child: const Icon(Icons.remove)),
+          const Gap(10),
+          FloatingActionButton(
+              onPressed: incrementar, child: const Icon(Icons.add)),
+        ],
       ),
     );
   }
