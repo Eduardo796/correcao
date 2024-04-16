@@ -12,13 +12,17 @@ class _HomePageState extends State<HomePage> {
   int contador = 0;
 
   void incrementar() {
-    contador++;
-    setState(() {});
+    if (contador < 10) {
+      contador++;
+      setState(() {});
+    }
   }
 
   void diminuir() {
-    contador--;
-    setState(() {});
+    if (contador > 0) {
+      contador--;
+      setState(() {});
+    }
   }
 
   @override
